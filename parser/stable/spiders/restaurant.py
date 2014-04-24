@@ -5,7 +5,10 @@ from stable.items import RestaurantTimeTableItme
 class RestaurantSpider(Spider):
     name = "restaurant"
     allowed_domains = ["dinnerbooking.com"]
-    start_urls = []
+    start_urls = [
+        #fill this list on "runtime" when the backend needs
+        #ex: http://dinnerbooking.com/restaurants/107/no-1
+    ]
 
     def parse(self, response):
         sel = Selector(response)
