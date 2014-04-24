@@ -1,0 +1,33 @@
+
+body {
+  margin:0;
+  padding:0;
+}
+
+#map {
+  position:absolute;
+  top:6%;
+  bottom:6%;
+  width:100%;
+}
+
+#geolocate {
+    background: #fff;
+    width: 158px;
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    z-index: 1000;
+
+    text-align: center;
+    padding: 6px 0;
+    color: #3C4E5A;
+    display: block;
+    border: 1px solid #BBB;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#geolocate:hover {
+    background: #ECF5FA;
+}
