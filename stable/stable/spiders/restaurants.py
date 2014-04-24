@@ -31,4 +31,5 @@ class RestaurantSpider(Spider):
             the_restaurant['address'] = a
             the_restaurant['time_table'] = time_table
 
+            the_restaurant.address_to_lat_lng()
             yield the_restaurant
