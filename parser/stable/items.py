@@ -34,5 +34,5 @@ class RestaurantItem(Item):
 
 class RestaurantTimeTableItme(Item):
     # define the fields for your item here like:
-    restaurant_address = Field()
+    restaurant_name = Field()
     time_table = Field()

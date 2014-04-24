@@ -15,10 +15,10 @@ class RestaurantSpider(Spider):
         for time_link in link_times:
             time_table.append(time_link.extract())
 
-        sel.xpath('//h2[@id="title"]/text()')[0].extract()
+        name = sel.xpath('//h2[@id="title"]/text()')[0].extract()
 
         table_item = RestaurantTimeTableItme()
-        table_item['restaurant_address'] = name
+        table_item['restaurant_name'] = name
         table_item['time_table'] = time_table
 
         return table_item
