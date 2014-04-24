@@ -30,3 +30,9 @@ class RestaurantItem(Item):
         if "locations" in data.keys():
             coords = data['locations'][0]['feature']['geometry']
             self["geometry"] = Point((coords['x'], coords['y']))
+
+
+class RestaurantTimeTableItme(Item):
+    # define the fields for your item here like:
+    restaurant_address = Field()
+    time_table = Field()
