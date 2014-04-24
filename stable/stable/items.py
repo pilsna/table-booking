@@ -6,9 +6,11 @@
 from scrapy.item import Item, Field
 
 
-class Restaurant(Item):
+class RestaurantItem(Item):
     # define the fields for your item here like:
     name = Field()
-    location = Field()
-    restaurant_url = Field()
-    times = Field()
+    address = Field()
+    latitude = Field()
+    longitude = Field()
+    url = Field()
+    time_table = Field()

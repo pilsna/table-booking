@@ -1,6 +1,6 @@
 from scrapy.spider import Spider
 from scrapy.selector import Selector
-
+from stable.items import RestaurantItem
 
 class RestaurantSpider(Spider):
     name = "restaurant"
@@ -14,20 +14,21 @@ class RestaurantSpider(Spider):
         sel = Selector(response)
         restaurants = sel.xpath("//div[@class='list_content']")
         for restaurant in restaurants:
-            name = restaurant.xpath('h3/a[@class="search_restaurant_name"]/text()').extract()[0]
-            url = restaurant.xpath('h3/a[@class="search_restaurant_name"]/@href').extract()[0]
-            location = restaurant.xpath('h4/text()').extract()[0]
+            the_restaurant = RestaurantItem()
+
+            n = restaurant.xpath('h3/a[@class="search_restaurant_name"]/text()').extract()[0]
+            u = restaurant.xpath('h3/a[@class="search_restaurant_name"]/@href').extract()[0]
+            a = restaurant.xpath('h4/text()').extract()[0]
 
             time_table = list()
             link_times = restaurant.xpath('div[@class="list_times"]//a/text()')
             for time_link in link_times:
                 time_table.append(time_link.extract())
 
-            output = dict(
-                restaurant_name=name,
-                restaurant_address=location,
-                restaurant_url=url,
-                time_table=time_table
-            )
 
-            return output
+            the_restaurant['name'] = n
+            the_restaurant['url'] = u
+            the_restaurant['address'] = a
+            the_restaurant['time_table'] = time_table
+
+            yield the_restaurant
