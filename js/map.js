@@ -31,11 +31,7 @@
             var locationIcon = L.icon({
                 iconUrl: './images/1398384698_591255-location2.png',
             });
-            /*
-            me = L.marker(currentLocation, {
-                icon: locationIcon
-            }).addTo(map);
-*/
+
             me = L.circle(currentLocation, e.accuracy, {
                 color: 'red',
                 fillColor: '#f03',
